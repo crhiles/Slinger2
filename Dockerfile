@@ -17,6 +17,7 @@ RUN apk add --no-cache bash busybox-suid su-exec
 #Set Slinger env variables
 ENV SLINGER_CONF=/config
 ENV SLINGER_APP=/usr/src/app
+ENV PIP_BREAK_SYSTEM_PACKAGES 1
 
 #Add Slinger dependancies
 RUN apk add py3-pip
@@ -26,7 +27,7 @@ RUN pip3 install flask
 
 # Download the source code, not using to keep size of image down
 #RUN apk add --no-cache git
-#RUN git clone https://github.com/rbf121/Slinger.git $SLINGER_APP
+#RUN git clone https://github.com/crhiles/Slinger2.git $SLINGER_APP
 COPY . $SLINGER_APP
 WORKDIR $SLINGER_APP
 
